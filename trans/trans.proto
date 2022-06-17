@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "trans";
+
+package transclient;
+
+service Trans {
+  rpc TransOutTry(AdjustInfo)  returns (Response);
+  rpc TransOutConfirm(AdjustInfo)  returns (Response);
+  rpc TransOutCancel(AdjustInfo)  returns (Response);
+
+  rpc TransInTry(AdjustInfo)  returns (Response);
+  rpc TransInConfirm(AdjustInfo)  returns (Response);
+  rpc TransInCancel(AdjustInfo)  returns (Response);
+
+}
+
+message AdjustInfo {
+  int64 Amount = 1;
+  int64 UserID = 2;
+}
+
+message Response {
+}
